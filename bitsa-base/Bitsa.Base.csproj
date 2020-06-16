@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200616080514_FirstMigration.cs" />
+    <Compile Remove="Migrations\20200616080514_FirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200616080849_FirstMigration.cs" />
+    <Compile Remove="Migrations\20200616080849_FirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200616095430_changeTableName.cs" />
+    <Compile Remove="Migrations\20200616095430_changeTableName.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NETCore.App" Version="2.2.8" />
+    <PackageReference Include="MySql.Data" Version="8.0.20" />
+    <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.20" />
+  </ItemGroup>
+
+</Project>
