@@ -53,7 +53,6 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiIxIiwiQWRtaW5pc3RyYXRvciI6IjE
 3. Presionar el botón **SEND*
 4. Si el usuario posee rol administrador, devolverá la lista de todos los usuarios del sistema. Caso contrario, informará un error **401 Unauthorized**
 
-```
+
 **Aclaración:** Para consultar los métodos correspondientes a la sección **users**, utilizar la siguiente ruta:
 https://localhost:44394/user-service/User/TransferBalance
-```
