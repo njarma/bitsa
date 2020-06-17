@@ -54,8 +54,8 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiIxIiwiQWRtaW5pc3RyYXRvciI6IjE
 4. Si el usuario posee rol administrador, devolverá la lista de todos los usuarios del sistema. Caso contrario, informará un error **401 Unauthorized**
 
 
-#### **Formatos de consulta:**
-**Sección User**
+### **Formatos de consulta:**
+**Sección User:**
 Para consultar los métodos correspondientes a la sección **users**, se deberá respetar el siguiente formato:
 ```
 https://localhost:44394/user-service/User/[nombre-del-método]
@@ -63,7 +63,7 @@ https://localhost:44394/user-service/User/[nombre-del-método]
 Por ejemplo, si quisera transferir el balance a otro usuario por medio de su Alias, utilice la siguiente ruta:
 https://localhost:44394/user-service/User/TransferBalance
 
-**Sección Admin**
+**Sección Admin:**
 Para consultar los métodos correspondientes a la sección **admin**, se deberá respetar el siguiente formato:
 ```
 https://localhost:44394/user-service/Admin/[nombre-del-método]
