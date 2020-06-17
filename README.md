@@ -60,7 +60,7 @@ Por ejemplo, si quisera agregar balance a un usuario por Id, utilice la siguient
 https://localhost:44394/user-service/Admin/AddBalance
 
 ### Interación con el proyecto api gateway para consultar API's
-Para el ejemplo se utilizará el mque obtiene todos los usuarios del sistema, el cual es accesible únicamente para usuarios administradores.
+Para el ejemplo se utilizará el método que obtiene todos los usuarios del sistema, el cual es accesible únicamente para usuarios administradores.
 Para interactar con el proyecto bitsa-api-users, es necesario seguir los siguientes pasos:
 1. Crear una consulta **GET en Postman** con la siguiente url: F
 2. Ir a la **pestaña AUTHORIZATION**, seleccionar de la lista desplegable la opción **Bearer Token** y pegar en la caja de téxto el token de la propiedad **access_token** que fue reservado en pasos anteriores. Se comparte un ejemplo para que vean el formato que debe tener:
