@@ -1,0 +1,1 @@
+﻿Scaffold-DbContext "server=localhost;port=3306;database=bitsa;user=bitnovo;password=#J1n3md#" MySql.Data.EntityFrameworkCore -t Users -Context DomainContext -f -ContextDir Model -OutputDir Model/Classes -UseDatabaseNames

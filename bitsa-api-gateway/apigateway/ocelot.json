@@ -1,0 +1,31 @@
+{
+  "ReRoutes": [
+    {
+      "UpstreamPathTemplate": "/auth-service/{everything}",
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44354
+        }
+      ],
+    },
+
+    {
+      "UpstreamPathTemplate": "/user-service/{everything}",
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44346
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "BitsaKey",
+        "AllowedScopes": []
+      }}
+
+  ]
+}

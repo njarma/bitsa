@@ -1,0 +1,15 @@
+server:
+  port: 8980
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+       git:
+        uri: https://github.com/akaramanapp/microservice-ocelot
+    profiles:
+      active: native
+management:
+  security:
+    enabled: false
