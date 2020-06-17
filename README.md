@@ -54,7 +54,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiIxIiwiQWRtaW5pc3RyYXRvciI6IjE
 4. Si el usuario posee rol administrador, devolverá la lista de todos los usuarios del sistema. Caso contrario, informará un error **401 Unauthorized**
 
 
-####**Formatos de consulta:**
+#### **Formatos de consulta:**
 **Sección User**
 Para consultar los métodos correspondientes a la sección **users**, se deberá respetar el siguiente formato:
 ```
