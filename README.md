@@ -1,20 +1,20 @@
 # Microservicio para la gestión de usuarios
 
 El proyecto se encuentra dividido en 4 proyectos:
-- :**[bitsa-api-gateway](https://github.com/njarma/bitsa/tree/master/bitsa-api-gateway):**. Es el punto de entrada a los métodos del proyecto de usuarios y de autenticación.
-- :**[bitsa-api-identity](https://github.com/njarma/bitsa/tree/master/bitsa-api-identity):**. Autentica el usuario por medio de email y contraseña, y posteriormente genera un token jwt
-- :**[bitsa-api-users](https://github.com/njarma/bitsa/tree/master/bitsa-api-users):**. El proyecto api rest con los requerimientos de la consigna.
-- :**[bitsa-base](https://github.com/njarma/bitsa/tree/master/bitsa-base):**. Emplea Entity Framework Core (Code First) para la creación de los modelos y la base de datos en mysql.
+- **[bitsa-api-gateway](https://github.com/njarma/bitsa/tree/master/bitsa-api-gateway):** Es el punto de entrada a los métodos del proyecto de usuarios y de autenticación.
+- **[bitsa-api-identity](https://github.com/njarma/bitsa/tree/master/bitsa-api-identity):** Autentica el usuario por medio de email y contraseña, y posteriormente genera un token jwt
+- **[bitsa-api-users](https://github.com/njarma/bitsa/tree/master/bitsa-api-users):** El proyecto api rest con los requerimientos de la consigna.
+- **[bitsa-base](https://github.com/njarma/bitsa/tree/master/bitsa-base):** Emplea Entity Framework Core (Code First) para la creación de los modelos y la base de datos en mysql.
 
 En la raíz del repositorio se incluye el archivo **script-database.sql** , el cual es un script de la estructura y los datos de prueba de la base de datos utilizada en el proceso de desarrollo.
 
 A continuación se detallará un ejemplo para explicar como debe ser la interacción con los proyectos. Para ello, se recomienda emplear la herramienta :**Postman:**.
 
-###**Tareas previas:**
+### **Tareas previas:**
 1. Se recomienda levantar el script de base de datos script-database.sql.
 2. Ejecutar los 4 proyectos descriptos al inicio.
 
-###**Interación con el api gateway:**
+### **Interación con el api gateway:**
 1. Crear una consulta POST en postman con la siguiente url: https://localhost:44354/api/Auth/Login
 2. Ir a la sección BODY, seleccionar el radiobutom RAW y pegar en la caja de texto el siguiente json
 ```json
