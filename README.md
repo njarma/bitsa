@@ -23,7 +23,8 @@ A continuación se detallará un ejemplo para explicar como debe ser la interacc
 	"Password": "12345678"
 }
 ```
-3. Si el email y password son correctos (es decir existen en la base de datos), postman devolverá los datos del usuario autenticado. Es importante reservar la propiedad **access_token** para los próximos pasos.
+3. Presionar el botón **SEND*
+4. Si el email y password son correctos (es decir existen en la base de datos), postman devolverá los datos del usuario autenticado. Es importante reservar la propiedad **access_token** para los próximos pasos.
 ```json
 {
     "revoked": 0,
@@ -44,8 +45,15 @@ A continuación se detallará un ejemplo para explicar como debe ser la interacc
 ### **Interación con el proyecto api gateway para consultar API's:**
 Para el ejemplo se utilizará el mque obtiene todos los usuarios del sistema, el cual es accesible únicamente para usuarios administradores.
 Para interactar con el proyecto bitsa-api-users, es necesario seguir los siguientes pasos:
-1. Crear una consulta **GET en Postman** con la siguiente url: https://localhost:44394/user-service/Admin
+1. Crear una consulta **GET en Postman** con la siguiente url: F
 2. Ir a la **pestaña AUTHORIZATION**, seleccionar de la lista desplegable la opción **Bearer Token** y pegar en la caja de téxto el token de la propiedad **access_token** que fue reservado en pasos anteriores. Se comparte un ejemplo para que vean el formato que debe tener:
 ```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiIxIiwiQWRtaW5pc3RyYXRvciI6IjEiLCJzdWIiOiJuamFybWFAZ21haWwuY29tIiwianRpIjoiMzUzZmZmMTYtNjUwNy00YzgwLWFmMmQtMTIwNDQzZWNjNDcyIiwiaWF0IjoiMTcvNi8yMDIwIDIwOjUxOjQ1IiwibmJmIjoxNTkyNDI3MTA1LCJleHAiOjE1OTI2MDcxMDUsImlzcyI6ImxvY2FsaG9zdCIsImF1ZCI6IkJpdHNhIn0.w60ZH7I_OQTJEe8fPuoQOUy1t--bvREy4oSUc5GccE8
+```
+3. Presionar el botón **SEND*
+4. Si el usuario posee rol administrador, devolverá la lista de todos los usuarios del sistema. Caso contrario, informará un error **401 Unauthorized**
+
+```
+**Aclaración:** Para consultar los métodos correspondientes a la sección **users**, utilizar la siguiente ruta:
+https://localhost:44394/user-service/User/TransferBalance
 ```
