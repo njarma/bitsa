@@ -23,7 +23,7 @@ Para dar seguimiento al presente manual se recomienda utilizar la herramienta **
 	"Password": "12345678"
 }
 ```
-3. Presionar el botón **SEND*
+3. Presionar el botón **SEND**
 4. Si el email y password son válidos, postman devolverá los datos del usuario autenticado. Es importante reservar la propiedad **access_token** para los próximos pasos.
 ```json
 {
@@ -67,5 +67,5 @@ Para interactuar con el proyecto **bitsa-api-users**, es necesario seguir los si
 ```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiIxIiwiQWRtaW5pc3RyYXRvciI6IjEiLCJzdWIiOiJuamFybWFAZ21haWwuY29tIiwianRpIjoiMzUzZmZmMTYtNjUwNy00YzgwLWFmMmQtMTIwNDQzZWNjNDcyIiwiaWF0IjoiMTcvNi8yMDIwIDIwOjUxOjQ1IiwibmJmIjoxNTkyNDI3MTA1LCJleHAiOjE1OTI2MDcxMDUsImlzcyI6ImxvY2FsaG9zdCIsImF1ZCI6IkJpdHNhIn0.w60ZH7I_OQTJEe8fPuoQOUy1t--bvREy4oSUc5GccE8
 ```
-3. Presionar el botón **SEND*
+3. Presionar el botón **SEND**
 4. Si el usuario posee rol administrador, devolverá la lista de todos los usuarios del sistema. Caso contrario, informará un error **401 Unauthorized**
