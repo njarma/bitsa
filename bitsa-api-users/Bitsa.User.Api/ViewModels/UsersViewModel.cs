@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Bitsa.User.Api.ViewModels
 {
-    public class UsersPutViewModel : UsersViewModel
+    public class UsersViewModel : UsersGetViewModel
     {
+        public string Password { get; set; }
     }
 }

@@ -12,9 +12,9 @@ namespace Bitsa.User.Api.Controllers
             return int.Parse(User.Claims.First(i => i.Type == "UserId").Value);
         }
 
-        protected int GetCompanyId()
+        protected int GetIsAdministrator()
         {
-            return int.Parse(User.Claims.First(i => i.Type == "CompanyId").Value);
+            return int.Parse(User.Claims.First(i => i.Type == "Administrator").Value);
         }
     }
 }

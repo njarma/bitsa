@@ -36,6 +36,12 @@ namespace Bitsa.User.Api
             services.AddMvc().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<BaseViewModel>());
             services.AddControllers();
 
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("AdministratorOnly", policy =>
+                                  policy.RequireClaim("Administrator", "1"));
+            });
+
             #region Cors
 
             services.AddCors(o => o.AddPolicy("AllowOrigin", builder =>
@@ -66,6 +72,7 @@ namespace Bitsa.User.Api
             #region DbContext
             var conn = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<DomainContext>(options => options.UseMySQL(conn));
+            services.AddScoped<DbContext, DomainContext>();
             #endregion
 
             #region AutoMapper

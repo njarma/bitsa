@@ -12,7 +12,13 @@ namespace Bitsa.User.Api.MappingServices
     {
         public UsersViewModelMappingService() 
         {
+            CreateMap<UsersViewModel, users>().ReverseMap();
             CreateMap<UsersGetViewModel, users>().ReverseMap();
+            CreateMap<UsersGetViewModel, UsersViewModel>().ReverseMap();
+            CreateMap<UsersGetViewModel, UsersViewModel>().ReverseMap();
+            CreateMap<users, UsersPutViewModel>().ReverseMap()
+                    .ForMember(x => x.Password, opt => opt.Ignore())
+                    .ForMember(x => x.Balance, opt => opt.Ignore());
         }
     }
 }

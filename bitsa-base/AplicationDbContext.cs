@@ -8,9 +8,9 @@ namespace Bitsa.Base
 {
     class AplicationDbContext : DbContext
     {
-        //public AplicationDbContext(DbContextOptions<AplicationDbContext> options) : base(options)
-        //{ }
-
+        public AplicationDbContext(DbContextOptions<AplicationDbContext> options) : base(options)
+        { }
+    
         protected override void OnConfiguring(DbContextOptionsBuilder optionBuilder)
         {
             optionBuilder.UseMySQL("server=localhost;port=3306;database=bitsa;user=bitnovo;password=#J1n3md#");
@@ -64,7 +64,7 @@ namespace Bitsa.Base
 
             builder.Entity<User>()
                 .Property(u => u.Alias)
-                .HasMaxLength(10)
+                .HasMaxLength(30)
                 .IsRequired();
 
             #endregion
