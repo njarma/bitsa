@@ -14,9 +14,9 @@ A continuación se detallará un ejemplo para explicar como debe ser la interacc
 1. Se recomienda levantar el script de base de datos script-database.sql.
 2. Ejecutar los 4 proyectos descriptos al inicio.
 
-### **Interación con el api gateway:**
+### **Interación con el proyecto api gateway:**
 1. Crear una consulta POST en postman con la siguiente url: https://localhost:44354/api/Auth/Login
-2. Ir a la sección BODY, seleccionar el radiobutom RAW y pegar en la caja de texto el siguiente json
+2. Ir a la **sección BODY**, seleccionar el **radiobutom RAW** y pegar en la caja de texto el siguiente json
 ```json
 {
 	"Email": "njarma@gmail.com",
