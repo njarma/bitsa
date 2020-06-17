@@ -11,7 +11,7 @@ En la raíz del repositorio se incluye un script con la estructura y los datos d
 Para dar seguimiento al presente manual se recomienda utilizar la herramienta **Postman:**.
 
 ### Tareas previas
-1. Crear la base de datos de prueba con el script **script-database.sql*.
+1. Crear la base de datos de prueba con el script **script-database.sql**.
 2. Ejecutar los 4 proyectos descriptos al inicio.
 
 ### Interación con el proyecto api gateway para autenticación
