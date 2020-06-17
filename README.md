@@ -1,9 +1,9 @@
 # Microservicio para la gestión de usuarios
 
 La resolución de la prueba práctica se encuentra dividido en 4 proyectos:
-- **[bitsa-api-gateway](https://github.com/njarma/bitsa/tree/master/bitsa-api-gateway):** Es el punto de entrada a los métodos del proyecto de usuarios y de autenticación.
+- **[bitsa-api-gateway](https://github.com/njarma/bitsa/tree/master/bitsa-api-gateway):** El punto de entrada a los métodos del proyecto de usuarios y de autenticación.
 - **[bitsa-api-identity](https://github.com/njarma/bitsa/tree/master/bitsa-api-identity):** Autentica el usuario por medio de email y contraseña, y posteriormente genera un token jwt
-- **[bitsa-api-users](https://github.com/njarma/bitsa/tree/master/bitsa-api-users):** El proyecto api rest con los requerimientos de la consigna.
+- **[bitsa-api-users](https://github.com/njarma/bitsa/tree/master/bitsa-api-users):** Api rest con los requerimientos de la consigna.
 - **[bitsa-base](https://github.com/njarma/bitsa/tree/master/bitsa-base):** Emplea Entity Framework Core (Code First) para la creación de los modelos y la base de datos en mysql.
 
 En la raíz del repositorio se incluye el archivo **script-database.sql** , el cual es un script de la estructura y los datos de prueba de la base de datos utilizada en el proceso de desarrollo.
