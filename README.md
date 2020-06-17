@@ -10,11 +10,11 @@ En la raíz del repositorio se incluye el archivo **script-database.sql** , el c
 
 A continuación se detallará un ejemplo para explicar como debe ser la interacción con los proyectos. Para ello, se recomienda emplear la herramienta :**Postman:**.
 
-### **Tareas previas:**
+### Tareas previas
 1. Se recomienda levantar el script de base de datos script-database.sql.
 2. Ejecutar los 4 proyectos descriptos al inicio.
 
-### **Interación con el proyecto api gateway para autenticación:**
+### Interación con el proyecto api gateway para autenticación
 1. Crear una consulta **POST en postman** con la siguiente url: https://localhost:44354/api/Auth/Login
 2. Ir a la **sección BODY**, seleccionar el **radiobutom RAW** y pegar en la caja de texto el siguiente json
 ```json
@@ -42,7 +42,7 @@ A continuación se detallará un ejemplo para explicar como debe ser la interacc
 }
 ```
 
-### **Interación con el proyecto api gateway para consultar API's:**
+### Interación con el proyecto api gateway para consultar API's
 Para el ejemplo se utilizará el mque obtiene todos los usuarios del sistema, el cual es accesible únicamente para usuarios administradores.
 Para interactar con el proyecto bitsa-api-users, es necesario seguir los siguientes pasos:
 1. Crear una consulta **GET en Postman** con la siguiente url: F
@@ -53,9 +53,8 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiIxIiwiQWRtaW5pc3RyYXRvciI6IjE
 3. Presionar el botón **SEND*
 4. Si el usuario posee rol administrador, devolverá la lista de todos los usuarios del sistema. Caso contrario, informará un error **401 Unauthorized**
 
-
-### **Formatos de consulta:**
-**Sección User:**
+### Formatos de consulta
+### **Sección User:**
 Para consultar los métodos correspondientes a la sección **users**, se deberá respetar el siguiente formato:
 ```
 https://localhost:44394/user-service/User/[nombre-del-método]
@@ -63,7 +62,7 @@ https://localhost:44394/user-service/User/[nombre-del-método]
 Por ejemplo, si quisera transferir el balance a otro usuario por medio de su Alias, utilice la siguiente ruta:
 https://localhost:44394/user-service/User/TransferBalance
 
-**Sección Admin:**
+### **Sección Admin:**
 Para consultar los métodos correspondientes a la sección **admin**, se deberá respetar el siguiente formato:
 ```
 https://localhost:44394/user-service/Admin/[nombre-del-método]
