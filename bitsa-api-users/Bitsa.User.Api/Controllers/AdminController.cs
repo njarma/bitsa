@@ -38,8 +38,15 @@ namespace Bitsa.Admin.Api.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Get()
         {
-            var result = await _service.GetAll();
-            return Ok(_mapper.Map<IEnumerable<UsersGetViewModel>>(result) ?? throw new BitsaEntityNotExistsException());
+            try
+            {
+                var result = await _service.GetAll();
+                return Ok(_mapper.Map<IEnumerable<UsersGetViewModel>>(result) ?? throw new BitsaEntityNotExistsException());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         // POST: api/Admin
@@ -47,7 +54,14 @@ namespace Bitsa.Admin.Api.Controllers
         [ProducesResponseType(typeof(UsersGetViewModel), StatusCodes.Status202Accepted)]
         public async Task<IActionResult> Post([FromBody] UsersPostViewModel entity)
         {
-            return Accepted(await _service.Save(entity));
+            try
+            {
+                return Accepted(await _service.Save(entity));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         //PUT: api/Admin/{id}
@@ -55,10 +69,18 @@ namespace Bitsa.Admin.Api.Controllers
         [ProducesResponseType(typeof(UsersGetViewModel), StatusCodes.Status204NoContent)]
         public async Task<IActionResult> Put([FromRoute]int id, [FromBody] UsersPutViewModel entity)
         {
-            if (id != entity.Id)
-                throw new HttpStatusCodeException(HttpStatusCode.BadRequest, "Identificador incorrecto");
+            try
+            {
+                if (id != entity.Id)
+                    throw new HttpStatusCodeException(HttpStatusCode.BadRequest, "Identificador incorrecto");
 
-            return Accepted(await _service.Update(entity));
+                return Accepted(await _service.Update(entity));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
 
         //DELETE: api/Admin/{id}
@@ -66,7 +88,14 @@ namespace Bitsa.Admin.Api.Controllers
         [ProducesResponseType(typeof(UsersGetViewModel), StatusCodes.Status204NoContent)]
         public async Task<IActionResult> Delete([FromRoute]int id)
         {
-            return Accepted(await _service.Delete(id));
+            try
+            {
+                return Accepted(await _service.Delete(id));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         // PUT: api/Admin
@@ -74,10 +103,17 @@ namespace Bitsa.Admin.Api.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> AddBalance([FromBody] EditUserBalanceFilterViewModel filter)
         {
-            var entity = _mapper.Map<users>(await _service.GetById(filter.Id));
-            await _service.AddBalance(entity, filter.Balance);
-            _context.SaveChanges();
-            return NoContent();
+            try
+            {
+                var entity = _mapper.Map<users>(await _service.GetById(filter.Id));
+                await _service.AddBalance(entity, filter.Balance);
+                _context.SaveChanges();
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         // PUT: api/Admin
@@ -85,12 +121,19 @@ namespace Bitsa.Admin.Api.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> SubstractBalance([FromBody] EditUserBalanceFilterViewModel filter)
         {
-            var entity = _mapper.Map<users>(await _service.GetById(filter.Id));
-            if (entity.Balance - filter.Balance < 0)
-                throw new HttpStatusCodeException(HttpStatusCode.BadRequest, "El usuario no dispone del balance ingresado");
-            await _service.SubstractBalance(entity, filter.Balance);
-            _context.SaveChanges();
-            return NoContent();
+            try
+            {
+                var entity = _mapper.Map<users>(await _service.GetById(filter.Id));
+                if (entity.Balance - filter.Balance < 0)
+                    throw new HttpStatusCodeException(HttpStatusCode.BadRequest, "El usuario no dispone del balance ingresado");
+                await _service.SubstractBalance(entity, filter.Balance);
+                _context.SaveChanges();
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
     }

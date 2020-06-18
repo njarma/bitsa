@@ -34,9 +34,16 @@ namespace Bitsa.User.Api.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Get()
         {
-            var userId = GetUserId();
-            var result = await _service.GetById(userId);
-            return Ok(_mapper.Map<UsersGetViewModel>(result) ?? throw new BitsaEntityNotExistsException());
+            try
+            {
+                var userId = GetUserId();
+                var result = await _service.GetById(userId);
+                return Ok(_mapper.Map<UsersGetViewModel>(result) ?? throw new BitsaEntityNotExistsException());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         // PUT: api/Users
