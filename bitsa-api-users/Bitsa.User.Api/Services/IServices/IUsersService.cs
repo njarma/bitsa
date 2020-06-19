@@ -11,11 +11,12 @@ namespace Bitsa.User.Api.Services.IServices
     {
         Task<UsersViewModel> GetById(int userId);
         Task<UsersViewModel> GetByAlias(string alias);
-        Task AddBalance(users user, float balance);
-        Task SubstractBalance(users user, float balance);
+        Task AddBalance(int targetId, float balance);
+        Task SubstractBalance(int sourceId, float balance);
         Task<IEnumerable<UsersViewModel>> GetAll();
         Task<UsersGetViewModel> Save(UsersPostViewModel entity);
         Task<UsersGetViewModel> Update(UsersPutViewModel entity);
         Task<UsersGetViewModel> Delete(int entityId);
+        Task TransferBalance(int sourceId, TransferBalanceFilterViewModel filter);
     }
 }

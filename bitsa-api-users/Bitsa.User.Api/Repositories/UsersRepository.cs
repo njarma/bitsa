@@ -67,14 +67,16 @@ namespace Bitsa.User.Api.Repositories
         {
             user.Balance -= balance;
             _context.Entry(user).State = EntityState.Modified;
-            return Task.FromResult(_context.SaveChanges());
+            _context.SaveChanges();
+            return Task.CompletedTask;
         }
 
         public Task AddBalance(users user, float balance)
         {
             user.Balance += balance;
             _context.Entry(user).State = EntityState.Modified;
-            return Task.FromResult(_context.SaveChanges());
+            _context.SaveChanges();
+            return Task.CompletedTask;
         }
 
 

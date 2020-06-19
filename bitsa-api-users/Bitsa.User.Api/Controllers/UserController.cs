@@ -51,31 +51,15 @@ namespace Bitsa.User.Api.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> TransferBalance([FromBody] TransferBalanceFilterViewModel filter)
         {
-
-            using (var transaction = _context.Database.BeginTransaction())
+            try
             {
-                try
-                {
-                    var sourceId = GetUserId();
-
-                    var source = _mapper.Map<users>(await _service.GetById(sourceId));
-                    if (source.Balance - filter.Balance < 0)
-                        throw new BitsaSourceBalanceInsufficientException();
-                    await _service.SubstractBalance(source, filter.Balance);
-
-                    var target = _mapper.Map<users>(await _service.GetByAlias(filter.Alias));
-                    if (target == null)
-                        throw new BitsaTargetEntityNotExistsException();
-                    await _service.AddBalance(target, filter.Balance);
-
-                    transaction.Commit();
-                    return NoContent();
-                }
-                catch (Exception ex)
-                {
-                    transaction.Rollback();
-                    throw ex;
-                }
+                var sourceId = GetUserId();
+                await _service.TransferBalance(sourceId, filter);
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }
