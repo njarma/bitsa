@@ -107,7 +107,6 @@ namespace Bitsa.Admin.Api.Controllers
             {
                 var entity = _mapper.Map<users>(await _service.GetById(filter.Id));
                 await _service.AddBalance(entity, filter.Balance);
-                _context.SaveChanges();
                 return NoContent();
             }
             catch (Exception ex)
@@ -127,7 +126,6 @@ namespace Bitsa.Admin.Api.Controllers
                 if (entity.Balance - filter.Balance < 0)
                     throw new HttpStatusCodeException(HttpStatusCode.BadRequest, "El usuario no dispone del balance ingresado");
                 await _service.SubstractBalance(entity, filter.Balance);
-                _context.SaveChanges();
                 return NoContent();
             }
             catch (Exception ex)

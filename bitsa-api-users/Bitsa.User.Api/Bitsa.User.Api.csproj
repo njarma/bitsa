@@ -8,7 +8,6 @@
     <Folder Include="Model\Enums\" />
     <Folder Include="Model\Extensions\" />
     <Folder Include="DLL\" />
-    <Folder Include="Policies\" />
   </ItemGroup>
 
   <ItemGroup>

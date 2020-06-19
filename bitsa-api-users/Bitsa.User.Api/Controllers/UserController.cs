@@ -69,14 +69,13 @@ namespace Bitsa.User.Api.Controllers
                     await _service.AddBalance(target, filter.Balance);
 
                     transaction.Commit();
-
+                    return NoContent();
                 }
                 catch (Exception ex)
                 {
                     transaction.Rollback();
                     throw ex;
                 }
-                return NoContent();
             }
         }
     }
