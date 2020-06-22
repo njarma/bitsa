@@ -16,7 +16,7 @@ Para dar seguimiento al presente manual se recomienda utilizar la herramienta **
 
 ### Interación con el proyecto api gateway para autenticación
 1. Crear una consulta **POST en postman** con la siguiente url: https://localhost:44354/api/Auth/Login
-2. Ir a la **sección BODY**, seleccionar el **radio button RAW** y pegar en la caja de texto el siguiente json
+2. Ir a la **sección BODY**, seleccionar el **radio button RAW** y pegar en la caja de texto el siguiente json. Aclaración importante, la contraseña de todos los usuarios es la misma.
 ```json
 {
 	"Email": "njarma@gmail.com",
