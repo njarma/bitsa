@@ -11,11 +11,5 @@ namespace Bitsa.User.Api.Repositories.IRepositories
     {
         Task<UsersViewModel> GetById(int userId);
         Task<UsersViewModel> GetByAlias(string alias);
-        Task AddBalance(users user, float balance);
-        Task SubstractBalance(users user, float balance);
-        Task<IEnumerable<UsersViewModel>> GetAll();
-        Task<UsersGetViewModel> Save(UsersPostViewModel entity);
-        Task<UsersGetViewModel> Update(UsersPutViewModel entity);
-        Task<UsersGetViewModel> Delete(int entityId);
     }
 }

@@ -21,15 +21,13 @@ namespace Bitsa.Admin.Api.Controllers
     [Authorize(Policy = "AdministratorOnly")]
     public class AdminController : ClaimsController
     {
-        private readonly IUsersService _service;
+        private readonly IAdminService _adminService;
         private readonly IMapper _mapper;
-        private readonly DomainContext _context;
 
-        public AdminController(IUsersService service, IMapper mapper, DomainContext context)
+        public AdminController(IAdminService adminService, IMapper mapper)
         {
-            _service = service;
+            _adminService = adminService;
             _mapper = mapper;
-            _context = context;
         }
 
         // GET: api/Admin/{id}
@@ -40,7 +38,7 @@ namespace Bitsa.Admin.Api.Controllers
         {
             try
             {
-                var result = await _service.GetAll();
+                var result = await _adminService.GetAll();
                 return Ok(_mapper.Map<IEnumerable<UsersGetViewModel>>(result) ?? throw new BitsaEntityNotExistsException());
             }
             catch (Exception ex)
@@ -56,7 +54,7 @@ namespace Bitsa.Admin.Api.Controllers
         {
             try
             {
-                return Accepted(await _service.Save(entity));
+                return Accepted(await _adminService.Save(entity));
             }
             catch (Exception ex)
             {
@@ -74,7 +72,7 @@ namespace Bitsa.Admin.Api.Controllers
                 if (id != entity.Id)
                     throw new HttpStatusCodeException(HttpStatusCode.BadRequest, "Identificador incorrecto");
 
-                return Accepted(await _service.Update(entity));
+                return Accepted(await _adminService.Update(entity));
             }
             catch (Exception ex)
             {
@@ -90,7 +88,7 @@ namespace Bitsa.Admin.Api.Controllers
         {
             try
             {
-                return Accepted(await _service.Delete(id));
+                return Accepted(await _adminService.Delete(id));
             }
             catch (Exception ex)
             {
@@ -105,7 +103,7 @@ namespace Bitsa.Admin.Api.Controllers
         {
             try
             {
-                await _service.AddBalance(filter.Id, filter.Balance);
+                await _adminService.AddBalance(filter.Id, filter.Balance);
                 return NoContent();
             }
             catch (Exception ex)
@@ -121,7 +119,7 @@ namespace Bitsa.Admin.Api.Controllers
         {
             try
             {
-                await _service.SubstractBalance(filter.Id, filter.Balance);
+                await _adminService.SubstractBalance(filter.Id, filter.Balance);
                 return NoContent();
             }
             catch (Exception ex)

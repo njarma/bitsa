@@ -20,12 +20,10 @@ namespace Bitsa.User.Api.Controllers
     {
         private readonly IUsersService _service;
         private readonly IMapper _mapper;
-        private readonly DomainContext _context;
-        public UserController(IUsersService service, IMapper mapper, DomainContext context)
+        public UserController(IUsersService service, IMapper mapper)
         {
             _service = service;
             _mapper = mapper;
-            _context = context;
         }
 
         // GET: api/User/me
