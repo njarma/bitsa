@@ -17,11 +17,9 @@ namespace Bitsa.User.Api.Repositories
     public class UsersRepository: BaseModel, IUsersRepository
     {
         private readonly IMapper _mapper;
-        private readonly IConfiguration _configuration;
-        public UsersRepository(DomainContext context, IMapper mapper, IConfiguration configuration) : base(context)
+        public UsersRepository(DomainContext context, IMapper mapper) : base(context)
         {
             _mapper = mapper;
-            _configuration = configuration;
         }
         public Task<UsersViewModel> GetById(int userId)
         {
