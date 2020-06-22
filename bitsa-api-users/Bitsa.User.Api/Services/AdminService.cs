@@ -15,23 +15,23 @@ namespace Bitsa.User.Api.Services
     public class AdminService : BaseModel, IAdminService
     {
         private IAdminRepository _adminRepository;
-        private IUsersService _userService;
+        private IUsersRepository _userRepository;
         private readonly IMapper _mapper;
-        public AdminService(DomainContext context, IAdminRepository adminRepository, IUsersService userService, IMapper mapper) : base(context)
+        public AdminService(DomainContext context, IAdminRepository adminRepository, IUsersRepository userRepository, IMapper mapper) : base(context)
         {
             _adminRepository = adminRepository ?? throw new ArgumentNullException(nameof(adminRepository));
-            _userService = userService ?? throw new ArgumentNullException(nameof(userService));
+            _userRepository = userRepository ?? throw new ArgumentNullException(nameof(userRepository));
             _mapper = mapper;
         }
         public async Task AddBalance(int targetId, float balance)
         {
-            var entity = _mapper.Map<users>(await _userService.GetById(targetId));
+            var entity = _mapper.Map<users>(await _userRepository.GetById(targetId));
             await _adminRepository.AddBalance(entity, balance);
             return;
         }
         public async Task SubstractBalance(int sourceId, float balance)
         {
-            var entity = _mapper.Map<users>(await _userService.GetById(sourceId));
+            var entity = _mapper.Map<users>(await _userRepository.GetById(sourceId));
             if (entity.Balance - balance < 0)
                 throw new HttpStatusCodeException(HttpStatusCode.BadRequest, "El usuario no dispone del balance ingresado");
 
